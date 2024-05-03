@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class PetsPayloads {
 
-    public static String addPetPayload(String categoryName, String petName, String[] url, String[] tag, String status) {
+    public static String addPetPayload(String categoryName, String petName, String[] url, String tag, String status) {
         return "{\n" +
                 "  \"id\": 0,\n" +
                 "  \"category\": {\n" +
@@ -19,7 +19,7 @@ public class PetsPayloads {
                 "  \"tags\": [\n" +
                 "    {\n" +
                 "      \"id\": 0,\n" +
-                "      \"name\": \"" + tag +"\"\n" +
+                "      \"name\": \"" + tag + "\"\n" +
                 "    }\n" +
                 "  ],\n" +
                 "  \"status\": \"" + status + "\"\n" +

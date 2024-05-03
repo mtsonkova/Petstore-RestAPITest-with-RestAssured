@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.*;
 public class PetsEndpoints extends BaseAPITest {
 //TODO string urls and tags are displayed as a code instead of text
     @Test(dataProvider = "petInfo")
-    public void testAddPetEndpoint(String category, String petName, String[] url, String[] tags, String status) throws IOException {
+    public void testAddPetEndpoint(String category, String petName, String[] url, String tags, String status) throws IOException {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
        String response = given().header("Content-Type", "application/json")
                 .body(PetsPayloads.addPetPayload(category, petName, url, tags, status))
