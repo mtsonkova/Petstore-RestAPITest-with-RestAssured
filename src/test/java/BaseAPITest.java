@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class BaseAPITest {
 
-    //@BeforeMethod(alwaysRun = true)
-    //public void setUp() {
-    //    RestAssured.baseURI = "petstore.swagger.io/v2";
-    //}
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() {
+        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+    }
 
     @DataProvider(name = "petInfo")
     public Object[][] createPets() {
