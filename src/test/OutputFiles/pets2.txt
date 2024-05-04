@@ -6,24 +6,7 @@
     },
     "name": "Ruffus",
     "photoUrls": [
-        "[Ljava.lang.String;@5a18cd76"
-    ],
-    "tags": [
-        {
-            "id": 0,
-            "name": "bone tag, badge, qrcode, circle tag"
-        }
-    ],
-    "status": "available"
-}{
-    "id": 9223372036854775807,
-    "category": {
-        "id": 0,
-        "name": "dog"
-    },
-    "name": "Momo",
-    "photoUrls": [
-        "[Ljava.lang.String;@10823d72"
+        "https://www.rawpixel.com/image/12087075/png-white-background-dog"
     ],
     "tags": [
         {
@@ -38,14 +21,31 @@
         "id": 0,
         "name": "dog"
     },
-    "name": "Lassy",
+    "name": "Momo",
     "photoUrls": [
-        "[Ljava.lang.String;@4207609e"
+        "https://www.rawpixel.com/image/12057067/png-white-background-dog"
     ],
     "tags": [
         {
             "id": 0,
-            "name": "qrcode, circle tag"
+            "name": "circle tag"
+        }
+    ],
+    "status": "available"
+}{
+    "id": 9223372036854775807,
+    "category": {
+        "id": 0,
+        "name": "dog"
+    },
+    "name": "Lassy",
+    "photoUrls": [
+        "https://www.rawpixel.com/image/12057067/png-white-background-dog"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "qrcode"
         }
     ],
     "status": "sold"
@@ -57,12 +57,12 @@
     },
     "name": "Lassy",
     "photoUrls": [
-        "[Ljava.lang.String;@14ef2482"
+        "https://www.rawpixel.com/image/12057067/png-white-background-dog"
     ],
     "tags": [
         {
             "id": 0,
-            "name": "qrcode, circle tag"
+            "name": "circle tag"
         }
     ],
     "status": "pending"
@@ -74,7 +74,7 @@
     },
     "name": "Lilo",
     "photoUrls": [
-        "[Ljava.lang.String;@2d9dff65"
+        "https://www.petmd.com/fish/care/how-to-take-care-of-goldfish"
     ],
     "tags": [
         {
@@ -91,7 +91,7 @@
     },
     "name": "Nemo",
     "photoUrls": [
-        "[Ljava.lang.String;@80bfdc6"
+        "https://www.petmd.com/fish/care/how-to-take-care-of-goldfish"
     ],
     "tags": [
         {
@@ -108,7 +108,7 @@
     },
     "name": "Dory",
     "photoUrls": [
-        "[Ljava.lang.String;@32e54a9d"
+        "https://www.petmd.com/fish/care/how-to-take-care-of-goldfish"
     ],
     "tags": [
         {
@@ -125,12 +125,12 @@
     },
     "name": "Fluffy",
     "photoUrls": [
-        "[Ljava.lang.String;@1687eb01"
+        "https://en.wiktionary.org/wiki/cat#/media/File:Cat03.jpg"
     ],
     "tags": [
         {
             "id": 0,
-            "name": "qrcode, circle tag"
+            "name": "heart tag"
         }
     ],
     "status": "pending"
@@ -142,12 +142,12 @@
     },
     "name": "Mrs Purr",
     "photoUrls": [
-        "[Ljava.lang.String;@26586b74"
+        "https://en.wiktionary.org/wiki/cat#/media/File:Cat03.jpg"
     ],
     "tags": [
         {
             "id": 0,
-            "name": "circle tag"
+            "name": "paw tag"
         }
     ],
     "status": "sold"
@@ -159,7 +159,7 @@
     },
     "name": "Kitty",
     "photoUrls": [
-        "[Ljava.lang.String;@2cc75074"
+        "https://en.wiktionary.org/wiki/cat#/media/File:Cat03.jpg"
     ],
     "tags": [
         {
@@ -176,7 +176,7 @@
     },
     "name": "Polly",
     "photoUrls": [
-        "[Ljava.lang.String;@4993febc"
+        ""
     ],
     "tags": [
         {
@@ -193,7 +193,7 @@
     },
     "name": "Lolly",
     "photoUrls": [
-        "[Ljava.lang.String;@a50d709"
+        ""
     ],
     "tags": [
         {
@@ -210,7 +210,7 @@
     },
     "name": "Lorry",
     "photoUrls": [
-        "[Ljava.lang.String;@6c5ddccd"
+        ""
     ],
     "tags": [
         {
