@@ -1,6 +1,6 @@
 package Payloads;
 
-public class StorePauloads {
+public class StorePayloads {
 
     public static String placeOrder(int petID, int qty, String shipDate, String status, Boolean complete) {
         return "{\n" +
