@@ -103,6 +103,15 @@ public class PetsEndpoints extends BaseAPITest {
     }
 
     @Test
+    public void findPetByInvalidIDSupplied() {
+        String response = given().pathParam("petId", "-2a5")
+                .when().get("/pet/{petId}")
+                .then().log().all().assertThat().statusCode(400).extract().response().asPrettyString();
+
+        Assert.assertTrue(response.contains("Pet not found"));
+    }
+
+    @Test
     public void updatePetByFormData() {
         String response = given().header("accept", "application/json")
                 .header("Content-Type", "application/x-www-form-urlencoded")
