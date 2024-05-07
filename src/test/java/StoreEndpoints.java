@@ -44,18 +44,23 @@ public class StoreEndpoints extends BaseAPITest{
     }
 
     @Test
-    public void findOrderByNegativeId() {
-        Response response = given().pathParam("orderId", -5)
-                .when().get("/store/order/{orderId}");
+    public void deleteOrderByValidId() {
+        Response response = given().pathParam("orderId", "9223372036854775807")
+                .when().delete("/store/order/{orderId}");
 
         int statusCode = response.getStatusCode();
         Assert.assertTrue(statusCode == 404);
     }
 
+    //Per documentation it is supposed to return 400, not 404
     @Test
-    public void deleteOrder() {
+    public void deleteOrderByIncorrectdId() {
+        Response response = given().pathParam("orderId", "-5a")
+                .when().delete("/store/order/{orderId}");
 
+        int statusCode = response.getStatusCode();
+        System.out.println(statusCode);
+        Assert.assertTrue(statusCode == 400);
     }
-
 
 }
