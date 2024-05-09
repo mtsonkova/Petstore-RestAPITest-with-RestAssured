@@ -29,7 +29,19 @@ public class UserEndpoints extends BaseAPITest {
        String response = given().pathParam("username", "jsmith")
                 .when().get("/user/{username}")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
-
     }
+
+    @Test
+    public void logUser() {
+        String response = given()
+                .queryParam("username", "jsmith")
+                .queryParam("password", "password2")
+                .when().get("/user/login")
+                .then().log().all()
+                .assertThat().statusCode(200)
+                .extract().response().asPrettyString();
+    }
+
+
 
 }
