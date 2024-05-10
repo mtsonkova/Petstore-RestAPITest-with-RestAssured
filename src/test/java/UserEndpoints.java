@@ -98,4 +98,46 @@ public class UserEndpoints extends BaseAPITest {
                 .extract().response().asPrettyString();
         System.out.println("User logged out");
     }
+
+
+    @Test
+    public void TestMultipleEndpoints_TriggerErrorCodes() {
+        //log user
+        given()
+                .queryParam("username", "jsmith")
+                .queryParam("password", "password2")
+                .when().get("/user/login");
+        System.out.println("User logged");
+
+
+
+       String responseUpdateNewlyCreatedUser = given().header("Content-Type", "application/json")
+                .pathParam("username", "anewman")
+                .body(UsersPayload.createNewUser("asullivan", "Annette", "Sullivan",
+                        "asul2@email.com", "12345678", "3245423432", 6))
+                .when().put("/user/{username}")
+                .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
+        System.out.println("New user updated");
+
+        // delete newly updated user
+
+        String responseDeleteUpdatedUser = given().pathParams("username", "jamesDonovanJS")
+                .when().delete("/user/{username}")
+                .then().log().all().assertThat().statusCode(404).extract().response().asPrettyString();
+        System.out.println("Updated user deleted");
+
+        //get deleted user
+        String responseDeletedUser = given().pathParams("username", "ssmith")
+                .when().get("/user/{username}")
+                .then().log().all().assertThat().statusCode(404).extract().response().asPrettyString();
+        System.out.println("Deleted user fetchecd");
+
+        // log out user
+        String responseLogOutUser = given()
+                .when().get("/user/logout")
+                .then().log().all()
+                .assertThat().statusCode(200)
+                .extract().response().asPrettyString();
+        System.out.println("User logged out");
+    }
 }
