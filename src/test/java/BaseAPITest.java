@@ -34,7 +34,7 @@ public class BaseAPITest {
                         "sold"
                 },
 
-                {"dog", "Lassy",
+                {"dog", "Gigi",
                         new String[]{"https://www.rawpixel.com/image/12087075/png-white-background-dog",
                                 "https://www.rawpixel.com/image/12057067/png-white-background-dog"},
                         "circle tag",
@@ -118,7 +118,7 @@ public class BaseAPITest {
                         "sold"
                 },
 
-                {"dog", "Lassy",
+                {"dog", "Gigi",
                         "https://www.rawpixel.com/image/12057067/png-white-background-dog",
                         "circle tag",
                         "pending"

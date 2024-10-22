@@ -29,7 +29,7 @@ public class ReusableMethods {
         return jsonPath;
     }
 
-    public static Response createMultipleUserProfilesWithJsonFile () throws IOException {
+    public static Response createMultipleUserProfilesWithJsonFile() throws IOException {
         String jsonFilePath = System.getProperty("user.dir") + "/src/test/java/utilities/userDetails.json";
 
         // Read the content of the JSON file as a string
@@ -43,3 +43,4 @@ public class ReusableMethods {
         return response;
     }
 }
+

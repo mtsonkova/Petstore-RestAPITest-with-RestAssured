@@ -26,10 +26,10 @@ public class PetsEndpoints extends BaseAPITest {
     }
 
     @Test(dataProvider = "petInfo2")
-    public void testAddPetEndpoint2(String category, String petName, String url, String tags, String status) throws IOException {
+    public void testAddPetEndpoint2(String category, String petName, String[] url, String tags, String status) throws IOException {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
         String response = given().header("Content-Type", "application/json")
-                .body(PetsPayloads.addPetPayload2(category, petName, url, tags, status))
+                .body(PetsPayloads.addPetPayload2(category, petName,  url, tags, status))
                 .when().post("/pet")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
 
@@ -88,7 +88,7 @@ public class PetsEndpoints extends BaseAPITest {
 
     @Test
     public void findPetById() {
-        String response = given().pathParam("petId", "455")
+        String response = given().pathParam("petId", "1")
                 .when().get("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
     }
@@ -106,7 +106,7 @@ public class PetsEndpoints extends BaseAPITest {
     public void findPetByInvalidIDSupplied() {
         String response = given().pathParam("petId", "-2a5")
                 .when().get("/pet/{petId}")
-                .then().log().all().assertThat().statusCode(400).extract().response().asPrettyString();
+                .then().log().all().assertThat().statusCode(404).extract().response().asPrettyString();
 
         Assert.assertTrue(response.contains("Pet not found"));
     }

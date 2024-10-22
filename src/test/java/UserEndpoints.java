@@ -1,15 +1,10 @@
 import Payloads.UsersPayload;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.ReusableMethods;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.SQLOutput;
 
 import static io.restassured.RestAssured.*;
 
