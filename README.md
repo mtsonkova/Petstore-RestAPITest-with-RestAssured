@@ -2,7 +2,9 @@
 
 ## Project details
 **Library:** RestAssured;
+
 **Programming Language:** Java;
+
 **Reporting Tool:** Extent Reports;
 
 ## Solution
