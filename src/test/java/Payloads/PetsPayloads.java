@@ -3,9 +3,6 @@ package Payloads;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class PetsPayloads {
 
     public static String addPetPayload(String categoryName, String petName, String[] url, String tag, String status) {
