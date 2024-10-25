@@ -12,12 +12,14 @@ The project is automated for https scheme with api_key authorization enabled.
 
 
 ### Test Results
-<img width="940" alt="image" src="https://github.com/user-attachments/assets/acf1abbf-b7a2-4588-99ea-b8573461b744">
+<img width="940" alt="image" src="https://github.com/user-attachments/assets/01c96107-676f-42e7-8c56-c00564a575d6">
+
 
 ### Failed Tests
-<img width="947" alt="image" src="https://github.com/user-attachments/assets/f4875907-26a5-40d2-aac1-3211d08ed69b">
+<img width="948" alt="image" src="https://github.com/user-attachments/assets/1f4ddb1c-ca8f-4782-beaa-256e0cd69d2c">
 
-New issues to be reported for each failed test.
+
+Issue is reported for the failed test.
 
 
 
