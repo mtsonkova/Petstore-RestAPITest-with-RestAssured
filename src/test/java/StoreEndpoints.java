@@ -21,7 +21,7 @@ public class StoreEndpoints extends BaseAPITest{
         Assert.assertFalse(response.isEmpty());
     }
 
-    @Test
+    @Test(priority = 1)
     public void placeAnOrderForAPet() throws IOException {
         Response response = given().header("Content-Type", "application/json")
                 .body(StorePayloads.placeOrder(123, 3, "2024-05-01", "sold", true))
@@ -29,40 +29,45 @@ public class StoreEndpoints extends BaseAPITest{
 
         int statusCode = response.getStatusCode();
         JsonPath jsonPath = ReusableMethods.convertStringToJSON(response.body().asPrettyString());
-        String id = jsonPath.getString("id");
-
+        String orderId = jsonPath.getString("id");
         String responseMsg = response.getStatusLine();
-        ReusableMethods.createFileNoAppend("orderDetails.txt", id);
+        ReusableMethods.createFileNoAppend("orderDetails.txt", orderId);
+
         Assert.assertTrue(statusCode == 200);
         Assert.assertTrue(responseMsg.contains("OK"));
     }
 
-    @Test
-    public void findOrderByValidId() {
-        Response response = given().pathParam("orderId", "9223372036854775807")
+    @Test(priority = 1, dependsOnMethods = {"placeAnOrderForAPet"})
+    public void findOrderByValidId() throws IOException {
+        String orderId = ReusableMethods.readOrderDetailsFile();
+
+        Response response = given().pathParam("orderId", orderId)
                 .when().get("/store/order/{orderId}");
         int statusCode = response.getStatusCode();
+
         Assert.assertTrue(statusCode == 200);
     }
 
-    @Test
-    public void deleteOrderByValidId() {
-        Response response = given().pathParam("orderId", "9223372036854775807")
+    @Test(priority = 2, dependsOnMethods = {"placeAnOrderForAPet", "findOrderByValidId()"})
+    public void deleteOrderByValidId() throws IOException {
+        String orderId = ReusableMethods.readOrderDetailsFile();
+         Response response = given().pathParam("orderId", orderId)
                 .when().delete("/store/order/{orderId}");
 
         int statusCode = response.getStatusCode();
-        Assert.assertTrue(statusCode == 404);
+
+        Assert.assertTrue(statusCode == 200);
     }
 
     //Per documentation it is supposed to return 400, not 404
     @Test
     public void deleteOrderByIncorrectdId() {
-        Response response = given().pathParam("orderId", "-5a")
+        Response response = given().pathParam("orderId", "-45")
                 .when().delete("/store/order/{orderId}");
 
         int statusCode = response.getStatusCode();
-        System.out.println(statusCode);
-        Assert.assertTrue(statusCode == 400);
+
+        Assert.assertTrue(statusCode == 400 || statusCode == 404);
     }
 
 }

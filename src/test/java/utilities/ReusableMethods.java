@@ -3,10 +3,10 @@ package utilities;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 import static io.restassured.RestAssured.given;
 
@@ -41,6 +41,41 @@ public class ReusableMethods {
                 .when()
                 .post("/user/createWithList");
         return response;
+    }
+
+    public static String readOrderDetailsFile() throws IOException {
+        File file = new File(
+                System.getProperty("user.dir") + "/src/test/OutputFiles/orderDetails.txt");
+
+        String orderId = "";
+
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+            orderId = scanner.nextLine();
+        }
+
+        return orderId;
+    }
+
+    public static String readAvailablePetsFile() throws IOException {
+        File file = new File(
+                System.getProperty("user.dir") + "/src/test/OutputFiles/availablePets.txt");
+
+        String line = "";
+
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+            line = scanner.nextLine();
+            //"id": 9223372036854023176
+            if(line.contains("id")) {
+                break;
+            }
+        }
+
+        String petId = line.substring(14, line.length()-1);
+        return petId;
     }
 }
 

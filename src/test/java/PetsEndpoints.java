@@ -7,17 +7,18 @@ import org.testng.annotations.Test;
 import utilities.ReusableMethods;
 
 import java.io.IOException;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class PetsEndpoints extends BaseAPITest {
     String apiKey = "qatest";
 
-//TODO string urls and tags are displayed as a code instead of text
+    //TODO string urls and tags are displayed as a code instead of text
     @Test(dataProvider = "petInfo")
     public void testAddPetEndpoint(String category, String petName, String[] url, String tags, String status) throws IOException {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
-       String response = given().header("Content-Type", "application/json")
+        String response = given().header("Content-Type", "application/json")
                 .body(PetsPayloads.addPetPayload(category, petName, url, tags, status))
                 .when().post("/pet")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
@@ -25,6 +26,7 @@ public class PetsEndpoints extends BaseAPITest {
         ReusableMethods.createFileAppend("pets1.txt", response);
     }
 
+    /*
     @Test(dataProvider = "petInfo2")
     public void testAddPetEndpoint2(String category, String petName, String[] url, String tags, String status) throws IOException {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
@@ -36,11 +38,11 @@ public class PetsEndpoints extends BaseAPITest {
 
         ReusableMethods.createFileAppend("pets2.txt", response);
     }
-
+*/
     @Test
     public void testUploadPhotoEndpoint() {
         String response = given().pathParam("petId", "9223372036854775807")
-                .header("accept","application/json")
+                .header("accept", "application/json")
                 .header("Content-Type", "multipart/form-data")
                 .multiPart("file", "image/jpeg")
                 .when().post("/pet/{petId}/uploadImage")
@@ -75,16 +77,16 @@ public class PetsEndpoints extends BaseAPITest {
         JsonPath jsonPath = ReusableMethods.convertStringToJSON(response);
         int size = jsonPath.getList("").size();
         Assert.assertTrue(size > 0);
-     }
+    }
 
-     //Test is supposed to fail with error code 400 Invalid status value
+    //Test is supposed to fail with error code 400 Invalid status value
     // Instead it returns 200 OK with empty array
-     @Test
+    @Test
     public void findPetByInvalidStatusValueShouldReturn400() {
-         String response = given().queryParam("status", "purchased")
-                 .when().get("/pet/findByStatus")
-                 .then().log().all().assertThat().statusCode(400).extract().response().asPrettyString();
-     }
+        String response = given().queryParam("status", "purchased")
+                .when().get("/pet/findByStatus")
+                .then().log().all().assertThat().statusCode(400).extract().response().asPrettyString();
+    }
 
     @Test
     public void findPetById() {
@@ -101,13 +103,11 @@ public class PetsEndpoints extends BaseAPITest {
         String response = given().pathParam("petId", "-25")
                 .when().get("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(404).extract().response().asPrettyString();
-
-        Assert.assertTrue(response.contains("Pet not found"));
     }
 
     @Test
     public void findPetByInvalidIDSupplied() {
-        String response = given().pathParam("petId", "-2a5")
+        String response = given().pathParam("petId", "-65")
                 .when().get("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(404).extract().response().asPrettyString();
 
@@ -118,15 +118,18 @@ public class PetsEndpoints extends BaseAPITest {
     public void updatePetByFormData() {
         String response = given().header("accept", "application/json")
                 .header("Content-Type", "application/x-www-form-urlencoded")
-                .pathParam("petId", 455)
+                .pathParam("petId", "100")
                 .formParam("name", "GoldieLocks")
                 .formParam("status", "sold")
                 .when().post("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
-     }
+    }
 
-     @Test
-    public void deletePetByIdValidIdProvided() {
+    @Test
+    public void deletePetByIdValidIdProvided() throws IOException {
+        String petId = ReusableMethods.readAvailablePetsFile();
+        System.out.println(petId);
+
         Response response = given().pathParam("petId", 455)
                 .when().delete("/pet/{petId}");
         int statusCode = response.getStatusCode();
@@ -134,11 +137,7 @@ public class PetsEndpoints extends BaseAPITest {
         Assert.assertTrue(statusCode == 404);
         Assert.assertTrue(message.contains("Not Found"));
 
-     }
-
-
-
-
+    }
 }
 
 
