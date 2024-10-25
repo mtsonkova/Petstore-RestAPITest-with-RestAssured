@@ -1,95 +1,5 @@
 [
     {
-        "id": 9223372036854023176,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "doggie",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
-        "id": 9223372036854023178,
-        "category": {
-            "id": 0,
-            "name": "Roger"
-        },
-        "name": "Dinosaur",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
-        "id": 9223372036854023184,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "fish",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
-        "id": 9223372036854775001,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "doggie",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
-        "id": 518,
-        "category": {
-            "id": 4444,
-            "name": "dog"
-        },
-        "name": "Simba",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
         "id": 9223372036854775016,
         "category": {
             "id": 0,
@@ -1652,24 +1562,6 @@
         "status": "available"
     },
     {
-        "id": 100,
-        "category": {
-            "id": 100,
-            "name": "Parrot"
-        },
-        "name": "Kesha",
-        "photoUrls": [
-            "ParrotURL"
-        ],
-        "tags": [
-            {
-                "id": 1000,
-                "name": "Animal"
-            }
-        ],
-        "status": "available"
-    },
-    {
         "id": 130,
         "category": {
             "id": 819,
@@ -2354,24 +2246,6 @@
             "name": "string"
         },
         "name": "doggie",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    },
-    {
-        "id": 636753,
-        "category": {
-            "id": 0,
-            "name": "кот"
-        },
-        "name": "Леопольд",
         "photoUrls": [
             "string"
         ],
@@ -3158,6 +3032,108 @@
             {
                 "id": 123456,
                 "name": "Charly New"
+            }
+        ],
+        "status": "available"
+    },
+    {
+        "id": 28,
+        "category": {
+            "id": 0,
+            "name": "string"
+        },
+        "name": "doggie",
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 0,
+                "name": "string"
+            }
+        ],
+        "status": "available"
+    },
+    {
+        "id": 15555,
+        "category": {
+            "id": 0,
+            "name": "puppy"
+        },
+        "name": "doggie",
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 0,
+                "name": "Charlie"
+            }
+        ],
+        "status": "available"
+    },
+    {
+        "id": 12345,
+        "category": {
+            "id": 1,
+            "name": "Dogs"
+        },
+        "name": "Zhulya",
+        "photoUrls": [
+            "http://example.com/photo.jpg"
+        ],
+        "tags": [
+            {
+                "id": 1,
+                "name": "cute"
+            }
+        ],
+        "status": "available"
+    },
+    {
+        "id": 2611,
+        "name": "XML Mogs",
+        "photoUrls": [
+            "http://xmlcats.com/1.jpg",
+            "http://xmlcats.com/2.jpg"
+        ],
+        "tags": [
+            
+        ],
+        "status": "available"
+    },
+    {
+        "id": 159,
+        "category": {
+            "id": 0,
+            "name": "TRIXIE"
+        },
+        "name": "doggie",
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 0,
+                "name": "string"
+            }
+        ],
+        "status": "available"
+    },
+    {
+        "id": 1,
+        "category": {
+            "id": 1,
+            "name": "string"
+        },
+        "name": "doggie",
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 1,
+                "name": "string"
             }
         ],
         "status": "available"

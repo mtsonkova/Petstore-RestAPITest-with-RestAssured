@@ -89,11 +89,12 @@ public class PetsEndpoints extends BaseAPITest {
     }
 
     @Test
-    public void findPetById() {
+    public void findPetById() throws IOException {
+        String petId = ReusableMethods.readAvailablePetsFile();
         String response = given()
                 .header("accept", "application/json")
-                .header("api_key", "qatest")
-                .pathParam("petId", "100")
+                .header("api_key", apiKey)
+                .pathParam("petId", petId)
                 .when().get("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
     }
@@ -128,15 +129,14 @@ public class PetsEndpoints extends BaseAPITest {
     @Test
     public void deletePetByIdValidIdProvided() throws IOException {
         String petId = ReusableMethods.readAvailablePetsFile();
-        System.out.println(petId);
 
-        Response response = given().pathParam("petId", 455)
+        Response response = given().pathParam("petId", petId)
                 .when().delete("/pet/{petId}");
         int statusCode = response.getStatusCode();
         String message = response.getStatusLine();
+
         Assert.assertTrue(statusCode == 404);
         Assert.assertTrue(message.contains("Not Found"));
-
     }
 }
 

@@ -23,6 +23,47 @@
         "status": "sold"
     },
     {
+        "id": 100,
+        "category": {
+            "id": 100,
+            "name": "Parrot"
+        },
+        "name": "GoldieLocks",
+        "photoUrls": [
+            "ParrotURL"
+        ],
+        "tags": [
+            {
+                "id": 1000,
+                "name": "Animal"
+            }
+        ],
+        "status": "sold"
+    },
+    {
+        "id": 11,
+        "category": {
+            "id": 554,
+            "name": "<string>"
+        },
+        "name": "DOG",
+        "photoUrls": [
+            "<string>",
+            "<string>"
+        ],
+        "tags": [
+            {
+                "id": 5454,
+                "name": "<string>"
+            },
+            {
+                "id": 5454,
+                "name": "<string>"
+            }
+        ],
+        "status": "sold"
+    },
+    {
         "id": 1711982,
         "category": {
             "id": 52551857,
@@ -644,21 +685,6 @@
                 "id": 0,
                 "name": "shy"
             }
-        ],
-        "status": "sold"
-    },
-    {
-        "id": 1,
-        "category": {
-            "id": 1,
-            "name": "cat"
-        },
-        "name": "dog",
-        "photoUrls": [
-            
-        ],
-        "tags": [
-            
         ],
         "status": "sold"
     }
