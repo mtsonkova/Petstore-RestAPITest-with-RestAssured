@@ -11,6 +11,8 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class PetsEndpoints extends BaseAPITest {
+    String apiKey = "qatest";
+
 //TODO string urls and tags are displayed as a code instead of text
     @Test(dataProvider = "petInfo")
     public void testAddPetEndpoint(String category, String petName, String[] url, String tags, String status) throws IOException {
@@ -21,8 +23,6 @@ public class PetsEndpoints extends BaseAPITest {
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
 
         ReusableMethods.createFileAppend("pets1.txt", response);
-
-
     }
 
     @Test(dataProvider = "petInfo2")
@@ -88,7 +88,10 @@ public class PetsEndpoints extends BaseAPITest {
 
     @Test
     public void findPetById() {
-        String response = given().pathParam("petId", "1")
+        String response = given()
+                .header("accept", "application/json")
+                .header("api_key", "qatest")
+                .pathParam("petId", "100")
                 .when().get("/pet/{petId}")
                 .then().log().all().assertThat().statusCode(200).extract().response().asPrettyString();
     }
